@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="InflateParams" severity="ignore" />
+    <issue id="MissingTranslation" severity="warning" />
+    <issue id="NewApi">
+        <ignore path="src/COM/Bangso/FitMiss/fragment/MainFragment.java" />
+        <ignore path="src/COM/Bangso/FitMiss/fragment/RecordWeightFragment.java" />
+    </issue>
+    <issue id="Recycle">
+        <ignore path="src/com/bangso/fitmiss/controller/RoundImageView.java" />
+    </issue>
+    <issue id="SimpleDateFormat" severity="ignore" />
+</lint>

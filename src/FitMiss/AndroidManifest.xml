@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="COM.Bangso.FitMiss"
+    android:versionCode="504"
+    android:versionName="5.0.4" >
+
+    <!-- 413  4.1.3  100  1.0.0 -->
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <!-- 可选 -->
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 美洽客服 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- baidu update -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- letv -->
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- tusdk permission -->
+    <!-- 允许应用程序写数据到外部存储设备（主要是SD卡） -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 请求访问使用照相设备 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 开启闪光灯权限 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 访问网络 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取WIFI信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许访问GPS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <application
+        android:name=".controller.ApplicationBase"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:icon="@drawable/ic_launcher"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- tusdk -->
+        <activity
+            android:name="org.lasque.tusdk.impl.activity.TuFragmentActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <!-- 声明美洽SDK所需的activity、service -->
+        <activity
+            android:name="com.mechat.mechatlibrary.ui.ConversationActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Light" />
+        <activity android:name="com.mechat.mechatlibrary.ui.ZoomImageActivity" />
+
+        <service
+            android:name="com.mechat.mechatlibrary.MechatService"
+            android:label="MechatService" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MessageIndexActivity"
+            android:label="消息"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskInfoActivity"
+            android:label="任务详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.RecordWeightActivity"
+            android:label="体重记录"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskChooseIndexActivity"
+            android:label="减肥方法"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity android:name=".activity.xq.TestActivity" >
+        </activity>
+        <activity
+            android:name=".activity.xq.MenceAssistActivity"
+            android:label="经期小助手"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.VideoListActivity"
+            android:label="全天运动"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.UpdateClockActivity"
+            android:label="修改提醒"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.FitMissMainNoLoseWayActivity"
+            android:label="选择减肥方法"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.LetvVideoActivity"
+            android:configChanges="orientation|keyboard|locale|screenSize|layoutDirection"
+            android:label="视频"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.AllDayFoodArrangeActivity"
+            android:label="全天饮食"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.VipServiceActivity"
+            android:label="会员服务"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.VipPayActivity"
+            android:label="会员支付"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.LoseWeightRankActivity"
+            android:label="近30天减重榜"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ScoreFillOrderActivity"
+            android:label="填写订单"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ScoreGetMoreWayActivity"
+            android:label="获取更多积分"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ScoreGoodsActivty"
+            android:label="积分商品"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ScoreGetMoreActivity"
+            android:label="获取积分"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ScoreExchangeRecordActivity"
+            android:label="兑换记录"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ScoreMallActivity"
+            android:label="积分商城"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.WeiBoLikeListActivity"
+            android:label="谁赞了我"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.FindFightFriendActivity"
+            android:label="结伴减肥"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ExpressTrackActivity"
+            android:label="物流详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.MutilSelectFragmentActivity"
+            android:label="选择照片"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.LossWeightRandChooseActivity"
+            android:label="你想..."
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskChooseLevelIndexActivity"
+            android:label="减肥阶段"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskChooseInfoActivity"
+            android:label="详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskRemindSettingsActivity"
+            android:label="提醒设置"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskCycleCheckBoxListActivity"
+            android:label="重复"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskManagementActivity"
+            android:label="任务管理"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FitnessWayHistoryActivity"
+            android:label="执行过的减肥方法"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FitnessWayExecuteSituationActivity"
+            android:label="执行情况"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FitnessWayExecuteSituationInfoActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FitnessWayCloseSummaryActivity"
+            android:label="周期小结"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TaskExecuteIndexActivity"
+            android:label="执行任务"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".fragment.WeiboListFragment"
+            android:label="密友圈"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ImagePagerActivity"
+            android:label="图片"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.AlipayActivity"
+            android:label="支付宝测试"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboInfoActivity"
+            android:label="密友圈内页"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboSendContentActivity"
+            android:label="发布微博"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboReviewContentActivity"
+            android:label="回复"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FollowUserActivity"
+            android:label="关注的人"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboTopicSelectActivity"
+            android:label="选择话题"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TopicSelectSearchActivity"
+            android:label="搜索话题"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboFavListActivity"
+            android:label="收藏列表"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboTopicListActivity"
+            android:label="贴子列表"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.UserSpaceActivity"
+            android:label="用户空间"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.LoginActvity"
+            android:label="用户登录"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.RegisterUsernameActvity"
+            android:label="用户注册"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.RegisterSexActvity"
+            android:label="选择性别"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.RegisterWeightActvity"
+            android:label="填写体重和身高"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".activity.FindPasswordUsernameActivity"
+            android:label="通过昵称找回密码"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FindPasswordEmailActivity"
+            android:label="通过Email找回密码"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FoodActivity"
+            android:label="食物库"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FoodListActivity"
+            android:label="食物列表"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FoodDetailActivity"
+            android:label="食物详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.DefineTaskActivity"
+            android:label="自定义任务"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.CalRecordActivity"
+            android:label="卡路里计算器"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FoodAddActivity"
+            android:label="添加食物"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.CalRecordHistoryActivity"
+            android:label="历史记录"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SportListActivity"
+            android:label="运动搜索"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SportAddActivity"
+            android:label="添加运动"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ToolActivity"
+            android:label="减肥工具"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ToolPingCeActivity"
+            android:label="自我评测"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MeicunActivity"
+            android:label="美寸代餐"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ToolKg2KalActivity"
+            android:label="公斤转卡路里"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ToolPingCeResultActivity"
+            android:label="自我评测结果"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.AtMeActivity"
+            android:label="提到我的"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeiboLikeActivity"
+            android:label="点赞"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SystemMessageActivity"
+            android:label="广播"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SystemMessageDetailActivity"
+            android:label="广播内容"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.PrivateMessageActivity"
+            android:label="私信列表"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.PrivateMessageDetailActivity"
+            android:label="私信对话"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SettingActivity"
+            android:label="设置"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.AboutUsActivity"
+            android:label="关于我们"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FansAndFollowActivity"
+            android:label="粉丝和关注"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MeicunShoppingActivity"
+            android:label="购买美寸"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MeicunInputPhoneActivity"
+            android:label="订单查询"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MeicunOrderCheckActivity"
+            android:label="订单详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:label="网页"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.jfxms.com"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.PersonalInformationActivity"
+            android:label="个人信息"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.UpdateInformationActivity"
+            android:label="修改资料"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.AccountSafeActivity"
+            android:label="账户安全"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.UpdatePasswordActivity"
+            android:label="修改密码"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.BindEmailActivity"
+            android:label="绑定邮箱"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeightMenuActivity"
+            android:label="体重"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeightListActivity"
+            android:label="体重"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.GirthMenuActivity"
+            android:label="围度"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.GirthListActivity"
+            android:label="围度"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.RecordGirthActivity"
+            android:label="记录围度"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FindFriendActivity"
+            android:label="找朋友"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ChartMenuActivity"
+            android:label="曲线"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WeightChartActivity"
+            android:label="体重曲线"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SanWeiChartChartActivity"
+            android:label="三围曲线"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SiZhiChartChartActivity"
+            android:label="腿和手臂曲线"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FoodChartActivity"
+            android:label="饮食曲线"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SportChartActivity"
+            android:label="运动曲线"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:label="减肥小秘书引导界面"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TopicRecommendActivity"
+            android:label="话题推荐"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MallIndexFragment"
+            android:label="商店"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MallInfoActivity"
+            android:label="商品详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MeicunInfoActivity"
+            android:label="美寸代餐"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FoodSearchActivity"
+            android:label="食物查找"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FindFriendSearchActivity"
+            android:label="找朋友"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.SportListSearchActivity"
+            android:label="运动查找"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.MenseSetActivity"
+            android:label="大姨妈设置"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.InviteFriendActivity"
+            android:label="邀请好友"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.TogetherLoseWeightActivity"
+            android:label="结伴减肥"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.ShoppingCartActivity"
+            android:label="购物车"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MallChildGoodsActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.CouponAllIndexActivity"
+            android:label="我的优惠券"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.CouponUseIndexActivity"
+            android:label="我的优惠券"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.FitnessWayNeedGoodsActivity"
+            android:label="物品准备"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.FillOrderActivity"
+            android:label="填写订单"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.MyOrderActivity"
+            android:label="我的订单"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.FillAddressActivity"
+            android:label="收货地址"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.ReceiveAddressActivity"
+            android:label="收货地址"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.UMengPushJumpActivity"
+            android:label="友盟推送跳转"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.MallIndexActivity"
+            android:label="商店"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".activity.xq.OrderDetailActivity"
+            android:label="订单详情"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Fitmiss_actionbar" >
+        </activity>
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Fitmiss_actionbar" />
+
+        <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <!-- alipay sdk end -->
+        <!-- 社会化分享开始 -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID -->
+                <data android:scheme="tencent100735893" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <!-- 社会化分享结束 -->
+        <!-- 消息推送开始 -->
+        <receiver
+            android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+            android:exported="false"
+            android:process=":push" >
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.SystemReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.MessageReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.ElectionReceiver"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4" />
+
+                <category android:name="umeng" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.umeng.message.RegistrationReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="COM.Bangso.FitMiss.intent.action.COMMAND" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.umeng.message.UmengMessageBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.umeng.message.UmengService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="COM.Bangso.FitMiss.intent.action.START" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="COM.Bangso.FitMiss.intent.action.COCKROACH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4" />
+
+                <category android:name="umeng" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.umeng.message.UmengIntentService"
+            android:process=":push" />
+        <service
+            android:name="com.umeng.message.UmengMessageIntentReceiverService"
+            android:exported="true"
+            android:process=":push" >
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.android.agoo.client.ElectionReceiverService" />
+            </intent-filter>
+        </service>
+        <!-- 百度配置 -->
+        <!--
+        <meta-data
+            android:name="BDAPPID"
+            android:value="6311427" >
+        </meta-data>
+         <meta-data
+            android:name="BDAPPKEY"
+            android:value="3BBugZ288bXL9dttPUIk43LU" >
+        </meta-data>
+        
+          <activity
+            android:name="com.baidu.autoupdatesdk.ConfirmDialoigActivity"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:theme="@style/bdp_update_dialog_style_fullscreen" />
+
+        <receiver
+            android:name="com.baidu.autoupdatesdk.receiver.BDBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_UPDATE" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_DOWNLOAD_COMPLETE" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_AS" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_AS_DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        -->
+        <!-- LETV -->
+        <service
+            android:name="com.letv.pp.service.CdeService"
+            android:process=":cde" />
+
+        <activity android:name="com.letv.admodule.WebViewActivity" >
+        </activity>
+
+        <!-- 友盟配置 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="555e878267e58ef3cc003a9c" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="79c77c3f8a5a38a59c8da0517ccfb151" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="GuanWang" />
+
+        <!-- If you do not want to use the standard notification bar in SDK, you can define IntentService instead to handle message. -->
+        <service
+            android:name=".MyPushIntentService"
+            android:process=":push" />
+        <service android:name="com.umeng.message.UmengDownloadResourceService" />
+        <!-- 消息推动结束 -->
+        <!-- 自动更新开始 -->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <!-- 自动更新结束 -->
+
+
+        <!-- 闹钟通知 开始 -->
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:process=":remote" >
+        </receiver>
+        <!-- 闹钟通知结束 -->
+
+
+        <!-- 自启动开始 -->
+        <service
+            android:name=".service.BootService"
+            android:process=":push" />
+
+        <receiver android:name=".receiver.BootBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!-- 自启动结束 -->
+    </application>
+
+</manifest>
